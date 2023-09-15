@@ -1,5 +1,3 @@
-import { UUIDV4 } from "sequelize";
-import Address from "../../../domain/customer/value-object/address";
 import Product from "../../../domain/product/entity/product";
 import ProductFactory from "../../../domain/product/factory/product.factory";
 import ProductRepositoryInterface from "../../../domain/product/repository/product-repository.interface";
@@ -18,6 +16,7 @@ export default class CreateProductUseCase {
   ): Promise<OutputCreateProductDto> {
     const productId = uuid();
     const product = ProductFactory.create(
+      
       input.type,
       input.name,
       input.price    
@@ -26,10 +25,10 @@ export default class CreateProductUseCase {
     await this.productRepository.create(product as Product);
 
     return {
-      id: productId,
-      name: input.name,
-      price: input.price,
-      type: input.type,
+      id: product.id,
+     name: product.name,
+     price: product.price,
+     type: input.type
       
     };
   }

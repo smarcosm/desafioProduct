@@ -21,7 +21,7 @@ export default class ProductB implements ProductInterface {
   }
 
   get price(): number {
-    return this._price * 2;
+    return this._price;
   }
 
   changeName(name: string): void {
