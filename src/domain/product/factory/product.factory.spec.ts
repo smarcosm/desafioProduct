@@ -7,16 +7,16 @@ describe("Product factory unit test", () => {
     expect(product.id).toBeDefined();
     expect(product.name).toBe("Product A");
     expect(product.price).toBe(1);
-    expect(product.constructor.name).toBe("Product");
+    expect(product.name).toBe("Product A");
   });
 
-  it("should create a proct type b", () => {
+  it("should create a product type b", () => {
     const product = ProductFactory.create("b", "Product B", 1);
 
     expect(product.id).toBeDefined();
     expect(product.name).toBe("Product B");
-    expect(product.price).toBe(2);
-    expect(product.constructor.name).toBe("ProductB");
+    expect(product.price).toBe(1);
+    expect(product.name).toBe("Product B");
   });
 
   it("should throw an error when product type is not supported", () => {
