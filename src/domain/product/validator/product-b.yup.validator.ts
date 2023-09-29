@@ -1,10 +1,10 @@
 import ValidatorInterface from "../../@shared/validator/validator.interface";
-import Product from "../entity/product";
 import * as yup from "yup";
-export default class ProductYupValidator
-  implements ValidatorInterface<Product>
+import ProductB from "../entity/product-b";
+export default class ProductBYupValidator
+  implements ValidatorInterface<ProductB>
 {
-  validate(entity: Product): boolean {
+  validate(entity: ProductB): boolean{
     try {
       yup
         .object()
@@ -12,6 +12,7 @@ export default class ProductYupValidator
           id: yup.string().required("Id is required"),
           name: yup.string().required("Name is required"),
           price: yup.number().min(0,"Price must be greater than zero"),
+
         })
         
         .validateSync(
@@ -30,7 +31,7 @@ export default class ProductYupValidator
           message: error,
         });
       });
-      return false;
+      
     }
     return true;
   }
